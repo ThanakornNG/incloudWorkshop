@@ -3,6 +3,35 @@ import { Text, View, ImageBackground, TextInput } from 'react-native'
 import Icon from "react-native-vector-icons/FontAwesome";
 import AsyncStorage from "@react-native-community/async-storage";
 
+class TextEntry extends Component {
+  render() {
+    return (
+      <View style={{ flexDirection: "row", alignItems: "flex-end" }}>
+            <Icon
+              name={this.props.iconName}
+              size={40}
+              style={{ width: 40 }}
+              color="#0008"
+            />
+            <TextInput
+              autoCapitalize="none"
+              secureTextEntry={this.props.isSecure}
+              style={{
+                flex: 1,
+                borderColor: "#0005",
+                borderWidth: 1,
+                marginLeft: 16,
+                height: 40,
+                borderRadius: 5,
+                paddingLeft: 8
+              }}
+              placeholder={this.props.defaultHolder}
+            />
+          </View>
+    );
+  }
+}
+
 export default class HomeScreen extends Component {
   render() {
     return (
@@ -18,50 +47,8 @@ export default class HomeScreen extends Component {
           }}
         >
           {/* UserName section */}
-          <View style={{ flexDirection: "row", alignItems: "flex-end" }}>
-            <Icon
-              name="user"
-              size={40}
-              style={{ width: 40 }}
-              color="#0008"
-            />
-            <TextInput
-              autoCapitalize="none"
-              style={{
-                flex: 1,
-                borderColor: "#0005",
-                borderWidth: 1,
-                marginLeft: 16,
-                height: 40,
-                borderRadius: 5,
-                paddingLeft: 8
-              }}
-              placeholder="Username"
-            />
-          </View>
-          <View style={{ flexDirection: "row", alignItems: "flex-end" }}>
-            <Icon
-              name="lock"
-              size={40}
-              style={{ width: 40 }}
-              color="#0008"
-            />
-            <TextInput
-              autoCapitalize="none"
-              secureTextEntry={true}
-              style={{
-                flex: 1,
-                borderColor: "#0005",
-                borderWidth: 1,
-                marginLeft: 16,
-                height: 40,
-                borderRadius: 5,
-                paddingLeft: 8
-              }}
-              placeholder="Username"
-            />
-          </View>
-
+          <TextEntry iconName="user" isSecure={false} defaultHolder="Username"/>
+          <TextEntry iconName="lock" isSecure={true} defaultHolder="Password"/>
         </View>
       </ImageBackground>
     )
