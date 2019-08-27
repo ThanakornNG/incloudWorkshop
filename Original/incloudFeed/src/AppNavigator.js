@@ -1,12 +1,17 @@
-import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import React, { Component } from "react";
 
-export default class AppNavigator extends Component {
-  render() {
-    return (
-      <View>
-        <Text> textInComponent </Text>
-      </View>
-    )
+import {
+  createStackNavigator,
+} from "react-navigation";
+import HomeScreen from "./HomeScreen";
+import RegisterScreen from "./RegisterScreen";
+
+export default createStackNavigator(
+  {
+    Home: { screen: HomeScreen },
+    Register: { screen: RegisterScreen }
+  },
+  {
+    initialRouteName: "Home"
   }
-}
+);
