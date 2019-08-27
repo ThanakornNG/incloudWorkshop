@@ -50,7 +50,7 @@ export default class HomeScreen extends Component {
   }
 
   onClickLoginBtn = () => {
-    alert(this.state.username);
+    this.props.navigation.navigate("AppScene")
   };
 
   render() {
@@ -100,3 +100,13 @@ export default class HomeScreen extends Component {
     );
   }
 }
+
+HomeScreen.navigationOptions = ({ navigation }) => {
+  return {
+    title: "Home",
+    headerStyle: {
+      backgroundColor: "#119CED"
+    },
+    headerTitleStyle: { color: "#fff" }
+  };
+};

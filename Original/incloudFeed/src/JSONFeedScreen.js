@@ -5,7 +5,7 @@ export default class JSONFeedScreen extends Component {
   render() {
     return (
       <View>
-        <Text> textInComponent </Text>
+        <Text> JSONFEED </Text>
       </View>
     )
   }
