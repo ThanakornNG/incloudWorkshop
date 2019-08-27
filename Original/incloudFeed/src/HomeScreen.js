@@ -50,7 +50,7 @@ export default class HomeScreen extends Component {
   }
 
   onClickLoginBtn = () => {
-    this.props.navigation.navigate("AppScene")
+    this.props.navigation.navigate("JSONFeedScreen")
   };
 
   render() {
