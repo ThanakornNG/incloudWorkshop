@@ -51,7 +51,6 @@ export default class HomeScreen extends Component {
 
   onClickLoginBtn = () => {
     alert(this.state.username);
-    alert(this.state.password);
   };
 
   render() {
