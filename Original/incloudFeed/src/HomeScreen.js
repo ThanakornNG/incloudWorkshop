@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Text, View, ImageBackground } from 'react-native'
+import { Text, View, ImageBackground, TextInput } from 'react-native'
+import Icon from "react-native-vector-icons/FontAwesome";
+import AsyncStorage from "@react-native-community/async-storage";
 
 export default class HomeScreen extends Component {
   render() {
@@ -9,18 +11,57 @@ export default class HomeScreen extends Component {
         source={require('./assets/img/bg.png')}>
         <View
           style={{
-            flexDirection: 'column',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-          }}>
-          <View
-            style={{
-              height: 200,
-              width: 350,
-              backgroundColor: '#FFF7',
-              marginTop: 20,
-              borderRadius: 20,
-            }}></View>
+            backgroundColor: "#FFF7",
+            margin: 16,
+            padding: 16,
+            borderRadius: 5
+          }}
+        >
+          {/* UserName section */}
+          <View style={{ flexDirection: "row", alignItems: "flex-end" }}>
+            <Icon
+              name="user"
+              size={40}
+              style={{ width: 40 }}
+              color="#0008"
+            />
+            <TextInput
+              autoCapitalize="none"
+              style={{
+                flex: 1,
+                borderColor: "#0005",
+                borderWidth: 1,
+                marginLeft: 16,
+                height: 40,
+                borderRadius: 5,
+                paddingLeft: 8
+              }}
+              placeholder="Username"
+            />
+          </View>
+          <View style={{ flexDirection: "row", alignItems: "flex-end" }}>
+            <Icon
+              name="lock"
+              size={40}
+              style={{ width: 40 }}
+              color="#0008"
+            />
+            <TextInput
+              autoCapitalize="none"
+              secureTextEntry={true}
+              style={{
+                flex: 1,
+                borderColor: "#0005",
+                borderWidth: 1,
+                marginLeft: 16,
+                height: 40,
+                borderRadius: 5,
+                paddingLeft: 8
+              }}
+              placeholder="Username"
+            />
+          </View>
+
         </View>
       </ImageBackground>
     )
